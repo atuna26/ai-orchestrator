@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
-import {localFont} from "next/font/local"
+"use client";
+
+import { localFont } from "next/font/local";
 import "./globals.css";
+import { SessionProvider } from "next-auth/react";
 
 const workSans = localFont({
   src: [
@@ -45,26 +47,19 @@ const workSans = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-work-sans"
-})
-
-export const metadata: Metadata = {
-  title: "AI Orchestrator",
-  description: "AI Orchestrator, a tool to orchestrate multiple AI models and APIs for complex tasks.",
-};
+  variable: "--font-work-sans",
+});
 
 export default function RootLayout({
+  session,
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body
-        className={workSans.variable}
-      >
-        {children}
-        
+      <body className={workSans.variable}>
+        <SessionProvider session={session}>{children}</SessionProvider>
       </body>
     </html>
   );

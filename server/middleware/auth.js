@@ -3,9 +3,9 @@ import jwt from "jsonwebtoken";
 export const verifyToken = (req,res,next) => {
     try{
 
-        const token = req.header("Authorization");
+        let token = req.header("Authorization");
         if(!token) return res.status(401).json({message:"Unauthorized"});
-        if(token.startWith("Bearer ")){
+        if(token.startsWith("Bearer ")){
             token = token.slice(7,token.length).trimLeft();
         }
 
