@@ -1,4 +1,3 @@
-```markdown
 # AI Orchestrator
 
 AI Orchestrator is a powerful tool designed to manage and interact with multiple AI models and APIs. It provides a seamless interface for users to explore, test, and utilize various AI capabilities in a unified platform.
